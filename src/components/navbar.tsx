@@ -1,25 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { BsBell } from "react-icons/bs";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 const Navbar = () => {
-  const [bg, setBg] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [avatarSelected, setAvatartSelected] = useState<boolean>(false);
 
-  // Track scroll position
-  const handleBg = () => {
-    if (window.scrollY >= 40) setBg(true);
-    else {
-      setBg(false);
-    }
-  };
+  useEffect(() => {
+    // Track scroll position
+    const handleScroll = () => {
+      setScrolled(window.scrollY >= 100);
+    };
 
-  window.addEventListener("scroll", handleBg);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <nav
-      className={`flex fixed items-center justify-between min-w-screen p-4 px-12 text-white z-50 transition-all 0.3s ${
-        bg ? "bg-black" : "bg-none"
+      className={`flex fixed items-center justify-between min-w-screen p-4 px-6 sm:px-12 text-white z-50 ${
+        scrolled ? "bg-neutral-950" : "bg-transparent"
       }`}
     >
       <img
@@ -28,13 +32,24 @@ const Navbar = () => {
         width={90}
       />
 
+      {/* Nav right side */}
       <aside className="flex items-center gap-6">
-        <BiSearch size={20} />
-        <button className="text-sm font-light">Kids</button>
-        <BsBell size={20} />
+        <button>
+          <BiSearch size={20} />
+        </button>
+
+        <button className="text-sm font-light hidden sm:block">Kids</button>
+        <button>
+          <BsBell size={20} />
+        </button>
 
         {/* Profile */}
-        <div className="flex items-center gap-2 cursor-pointer">
+        <div
+          onClick={() => {
+            setAvatartSelected((prev) => !prev);
+          }}
+          className="flex items-center gap-2 cursor-pointer"
+        >
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
             alt="profile avatar"
@@ -42,7 +57,10 @@ const Navbar = () => {
             height={30}
           />
 
-          <MdKeyboardArrowDown size={20} className={``} />
+          <MdKeyboardArrowDown
+            size={20}
+            className={`transition-transform duration-200 ${avatarSelected ? "rotate-180" : ""}`}
+          />
         </div>
       </aside>
     </nav>

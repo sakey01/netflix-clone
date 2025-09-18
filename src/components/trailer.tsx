@@ -2,54 +2,49 @@ import { useState } from "react";
 import { BsVolumeUp, BsVolumeMute, BsFillPlayFill } from "react-icons/bs";
 import { BiInfoCircle } from "react-icons/bi";
 
-const Trailer = () => {
+const Trailer: React.FC = () => {
   const [isMuted, setIsMuted] = useState<boolean>(true);
 
-  const video_url = "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+  const overview =
+    "Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.";
 
   return (
-    <div>
-      <video
-        src={video_url}
-        autoPlay
-        muted
-        playsInline
-        controls={false}
-        className="w-full h-screen object-cover"
-      />
+    <div className="h-screen bg-gradient-to-b from-black to-neutral-950">
+      <div className="relative w-full" style={{ paddingTop: "56.%" }}>
+        <iframe
+          className="absolute top-0 left-0 w-full h-full"
+          src="https://www.youtube.com/embed/ndl1W4ltcmg?rel=0&modestbranding=1&autoplay=1&controls=1"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+        ></iframe>
+      </div>
 
+      {/* Hero section */}
+      <article className="flex flex-col text-white absolute gap-4 top-50 px-6 sm:px-10 translate-x-0 translate-y-0">
+        <h1 className="text-6xl font-bold sm:text-7xl">The Witcher</h1>
+        <p className="text-stone-400 sm:text-lg md:max-w-3/4 max-w-full md:text-xl">{overview}</p>
 
-      <article className="flex flex-col text-white absolute gap-4 top-50 px-10 translate-x-0 translate-y-0">
-        <h1 className="text-6xl font-bold">The Lion King</h1>
-        <p>
-          Simba idolizes his father, King Mufasa, and takes to heart his own royal destiny. But not
-          everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother and
-          former heir to the throne has plans of his own. The battle for Pride Rock is ravaged with
-          betrayal, tragedy and drama, ultimately resulting in Simba's exile.
-        </p>
-
+        {/* Button group */}
         <div className="flex gap-4">
-          <button
-            onClick={() => alert("Can't play Movie")}
-            className="flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 text-black rounded"
-          >
+          <button className="btn bg-white text-black hover:bg-stone-200">
             <BsFillPlayFill size={20} />
             Play
           </button>
-          <button className="flex items-center justify-center gap-2 px-4 py-2 bg-gray-700 rounded">
+          <button className="btn bg-neutral-600 hover:bg-stone-500">
             <BiInfoCircle size={20} />
             More Info
           </button>
         </div>
       </article>
 
+      {/* Volume icon */}
       {isMuted ? (
-        <button className="absolute bottom-0 right-0">
-          <BsVolumeMute onClick={() => setIsMuted(false)} />
+        <button className="sound-btn" onClick={() => setIsMuted(false)}>
+          <BsVolumeMute />
         </button>
       ) : (
-        <button className="absolute bottom-0 right-0">
-          <BsVolumeUp onClick={() => setIsMuted(true)} />
+        <button className="sound-btn" onClick={() => setIsMuted(true)}>
+          <BsVolumeUp />
         </button>
       )}
     </div>

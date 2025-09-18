@@ -1,5 +1,30 @@
 @import "tailwindcss";
 
+html {
+  background-color: black;
+}
+
 button {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.btn {
+  @apply flex items-center justify-center gap-2 px-4 py-2 font-semibold rounded sm:px-6;
+}
+
+.sound-btn {
+  @apply absolute bottom-15 right-5 sm:right-15 p-3 bg-transparent border text-white rounded-4xl hover:bg-stone-800;
+}
+
+.chevron-btn {
+  @apply z-50 text-xl;
+}
+
+.hideScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.hideScroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
