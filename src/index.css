@@ -17,7 +17,7 @@ button {
 }
 
 .chevron-btn {
-  @apply z-50 text-xl;
+  @apply z-10 shadow;
 }
 
 .hideScroll::-webkit-scrollbar {

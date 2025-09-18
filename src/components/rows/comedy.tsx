@@ -1,4 +1,4 @@
-import RowTemplate from "./rowTemplates";
+import RowTemplate from "./rowTemplate";
 
 type CategoryItem = {
   endpoint: string;

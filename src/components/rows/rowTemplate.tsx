@@ -18,26 +18,6 @@ const RowTemplate: React.FC<RowItem> = ({ category, endpoint }) => {
     }[]
   >([]);
 
-  // Watch scroll
-  useEffect(() => {
-    const scrollLeft = () => {
-      if (window.scrollX < 1) {
-        return;
-      }
-    };
-
-    const scrollRight = () => {
-      if (window.scrollX < 1) {
-        return;
-      }
-    };
-
-    window.addEventListener("scroll", () => {
-      scrollLeft();
-      scrollRight();
-    });
-  }, []);
-
   // Fetch data
   useEffect(() => {
     const fetchMovie = async () => {
@@ -57,16 +37,34 @@ const RowTemplate: React.FC<RowItem> = ({ category, endpoint }) => {
     fetchMovie();
   }, [endpoint]);
 
+  const scrollLeft = () => {
+    if (!scrollRef.current) return;
+
+  };
+
+  const scrollRight = () => {
+    if (!scrollRef.current) return;
+
+  };
+
+  // Watch scroll
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      scrollLeft();
+      scrollRight();
+    });
+  }, []);
+
   return (
     <div className="flex items-center text-white mt-10">
       {/* Scroll left button */}
-      <button onClick={() => {}} className="chevron-btn">
+      <button onClick={scrollLeft} className="chevron-btn">
         <VscChevronLeft size={32} />
       </button>
 
       {/* Movie Row */}
-      <div className="flex scr flex-col">
-        <h2 className="text-lg font-semibold scale-y-110">{category || "Loading"}</h2>
+      <div className="flex flex-col">
+        <h2 className="text-lg font-semibold scale-y-110">{category}</h2>
         <div className="flex overflow-x-auto hideScroll py-4 gap-2" ref={scrollRef}>
           {movies.length > 0 &&
             movies.map((movie) => (
@@ -81,7 +79,7 @@ const RowTemplate: React.FC<RowItem> = ({ category, endpoint }) => {
       </div>
 
       {/* Scroll right button */}
-      <button onClick={() => {}} className="chevron-btn">
+      <button onClick={scrollRight} className="chevron-btn">
         <VscChevronRight size={32} />
       </button>
     </div>
