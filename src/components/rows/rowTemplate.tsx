@@ -39,14 +39,11 @@ const RowTemplate: React.FC<RowItem> = ({ category, endpoint }) => {
 
   const scrollLeft = () => {
     if (!scrollRef.current) return;
-
   };
 
   const scrollRight = () => {
     if (!scrollRef.current) return;
-
   };
-
   // Watch scroll
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -63,8 +60,8 @@ const RowTemplate: React.FC<RowItem> = ({ category, endpoint }) => {
       </button>
 
       {/* Movie Row */}
-      <div className="flex flex-col">
-        <h2 className="text-lg font-semibold scale-y-110">{category}</h2>
+      <div className="flex scr flex-col">
+        <h2 className="text-lg font-semibold scale-y-110">{category || "Loading"}</h2>
         <div className="flex overflow-x-auto hideScroll py-4 gap-2" ref={scrollRef}>
           {movies.length > 0 &&
             movies.map((movie) => (
