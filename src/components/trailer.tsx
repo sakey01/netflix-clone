@@ -5,6 +5,7 @@ import ReactPlayer from "react-player";
 
 const Trailer: React.FC = () => {
   const [isMuted, setIsMuted] = useState<boolean>(true);
+
   const video_id = "1031660584";
   const title = "Five Night at Freddy's";
   const overview =
@@ -12,9 +13,9 @@ const Trailer: React.FC = () => {
   const overview_sm = "A troubled security guard begins working at Freddy Fazbear's Pizzeria...";
 
   return (
-    <div className="relative w-full aspect-video">
+    <div className="relative w-full aspect-video mb-16">
       {/* Video Background */}
-      <div className="absolute overflow-hidden  inset-0 z-0">
+      <div className="absolute overflow-hidden inset-0">
         <ReactPlayer
           playing={true}
           loop={true}
@@ -41,11 +42,11 @@ const Trailer: React.FC = () => {
         </div>
         {/* Button group */}
         <div className="flex gap-4">
-          <button className="btn bg-white text-black">
+          <button onClick={() => {alert("Can't play")}} className="btn bg-white text-black hover:bg-neutral-200">
             <BsFillPlayFill className="text-xl sm:text-xl" />
             Play
           </button>
-          <button className="btn bg-neutral-700">
+          <button className="btn bg-neutral-700 hover:bg-neutral-600">
             <BiInfoCircle className=" text-xl sm:text-xl" />
             More Info
           </button>
@@ -53,7 +54,7 @@ const Trailer: React.FC = () => {
       </article>
 
       {/* Volume control */}
-      <div className="absolute bottom-4 right-4 z-10">
+      <div className="absolute bottom-4 right-2 lg:bottom-40">
         {isMuted ? (
           <button className="sound-btn" onClick={() => setIsMuted(false)}>
             <BsVolumeMute size={16} />
