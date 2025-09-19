@@ -26,7 +26,7 @@ const Trailer: React.FC = () => {
           src={`https://vimeo.com/${video_id}`}
         />
         {/* Gradient */}
-        <div className="absolute -bottom-5 w-full h-40 bg-gradient-to-b from-transparent to-neutral-950" />
+        <div className="absolute -bottom-5 w-full h-50 bg-gradient-to-b from-transparent to-neutral-950" />
       </div>
 
       {/* Hero section */}

@@ -55,7 +55,7 @@ const RowTemplate: React.FC<RowItem> = ({ category, endpoint }) => {
   };
 
   return (
-    <div className="text-white mt-20">
+    <div className="flex overflow-scroll text-white mt-20 px-6">
       {/* Scroll left button */}
       <button onClick={scrollLeft} className="chevron-btn left-1">
         <VscChevronLeft size={36} />
