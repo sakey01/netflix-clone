@@ -10,7 +10,7 @@ const Navbar = () => {
   useEffect(() => {
     // Track scroll position
     const handleScroll = () => {
-      setScrolled(window.scrollY >= 100);
+      setScrolled(window.scrollY >= 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`flex fixed items-center justify-between min-w-screen p-4 px-6 sm:px-12 text-white z-50 ${
+      className={`flex fixed items-center justify-between min-w-screen duration-200 p-4 px-6 sm:px-12 text-white z-50 ${
         scrolled ? "bg-neutral-950" : "bg-transparent"
       }`}
     >

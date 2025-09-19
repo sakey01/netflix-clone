@@ -1,52 +1,69 @@
 import { useState } from "react";
 import { BsVolumeUp, BsVolumeMute, BsFillPlayFill } from "react-icons/bs";
 import { BiInfoCircle } from "react-icons/bi";
+import ReactPlayer from "react-player";
 
 const Trailer: React.FC = () => {
   const [isMuted, setIsMuted] = useState<boolean>(true);
-
+  const video_id = "1031660584";
+  const title = "Five Night at Freddy's";
   const overview =
-    "Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.";
+    "A troubled security guard begins working at Freddy Fazbear's Pizzeria. While spending his first night on the job, he realizes the late shift at Freddy's won't be so easy to make it through.";
+  const overview_sm = "A troubled security guard begins working at Freddy Fazbear's Pizzeria...";
 
   return (
-    <div className="h-screen bg-gradient-to-b from-black to-neutral-950">
-      <div className="relative w-full" style={{ paddingTop: "56.%" }}>
-        <iframe
-          className="absolute top-0 left-0 w-full h-full"
-          src="https://www.youtube.com/embed/ndl1W4ltcmg?rel=0&modestbranding=1&autoplay=1&controls=1"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-        ></iframe>
+    <div className="relative w-full aspect-video overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <ReactPlayer
+          playing={true}
+          loop={true}
+          volume={1}
+          width="100%"
+          height="100%"
+          muted={isMuted}
+          className="object-cover scale-y-115"
+          src={`https://vimeo.com/${video_id}`}
+        />
+        {/* Gradient */}
+        <div className="absolute bottom-0 w-full h-32 bg-gradient-to-b from-transparent to-neutral-950"></div>
       </div>
 
       {/* Hero section */}
-      <article className="flex flex-col text-white absolute gap-4 top-50 px-6 sm:px-10 translate-x-0 translate-y-0">
-        <h1 className="text-6xl font-bold sm:text-7xl">The Witcher</h1>
-        <p className="text-stone-400 sm:text-lg md:max-w-3/4 max-w-full md:text-xl">{overview}</p>
+      <article className="absolute flex flex-col gap-4 sm:gap-6 top-1/4 text-white px-6 sm:px-12">
+        {/* Title */}
+        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold">{title}</h1>
 
+        {/* Descriptions */}
+        <div className="leading-relaxed text-neutral-300 max-w-3/4 md:text-lg lg:text-xl">
+          <p className="md:block hidden">{overview}</p>
+          <p className="block md:hidden">{overview_sm}</p>
+        </div>
         {/* Button group */}
         <div className="flex gap-4">
-          <button className="btn bg-white text-black hover:bg-stone-200">
-            <BsFillPlayFill size={20} />
+          <button className="btn bg-white text-black">
+            <BsFillPlayFill className="text-xl sm:text-xl" />
             Play
           </button>
-          <button className="btn bg-neutral-600 hover:bg-stone-500">
-            <BiInfoCircle size={20} />
+          <button className="btn bg-neutral-700">
+            <BiInfoCircle className=" text-xl sm:text-xl" />
             More Info
           </button>
         </div>
       </article>
 
-      {/* Volume icon */}
-      {isMuted ? (
-        <button className="sound-btn" onClick={() => setIsMuted(false)}>
-          <BsVolumeMute />
-        </button>
-      ) : (
-        <button className="sound-btn" onClick={() => setIsMuted(true)}>
-          <BsVolumeUp />
-        </button>
-      )}
+      {/* Volume control */}
+      <div className="absolute bottom-4 right-4 z-10">
+        {isMuted ? (
+          <button className="sound-btn" onClick={() => setIsMuted(false)}>
+            <BsVolumeMute size={16} />
+          </button>
+        ) : (
+          <button className="sound-btn" onClick={() => setIsMuted(true)}>
+            <BsVolumeUp size={16} />
+          </button>
+        )}
+      </div>
     </div>
   );
 };
