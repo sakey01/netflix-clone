@@ -12,9 +12,9 @@ const Trailer: React.FC = () => {
   const overview_sm = "A troubled security guard begins working at Freddy Fazbear's Pizzeria...";
 
   return (
-    <div className="relative w-full aspect-video overflow-hidden">
+    <div className="relative w-full aspect-video">
       {/* Video Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute overflow-hidden  inset-0 z-0">
         <ReactPlayer
           playing={true}
           loop={true}
@@ -26,16 +26,16 @@ const Trailer: React.FC = () => {
           src={`https://vimeo.com/${video_id}`}
         />
         {/* Gradient */}
-        <div className="absolute bottom-0 w-full h-32 bg-gradient-to-b from-transparent to-neutral-950"></div>
+        <div className="absolute -bottom-5 w-full h-40 bg-gradient-to-b from-transparent to-neutral-950" />
       </div>
 
       {/* Hero section */}
       <article className="absolute flex flex-col gap-4 sm:gap-6 top-1/4 text-white px-6 sm:px-12">
         {/* Title */}
-        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold">{title}</h1>
+        <h1 className="mt-4 text-2xl sm:text-4xl lg:text-6xl font-bold">{title}</h1>
 
         {/* Descriptions */}
-        <div className="leading-relaxed text-neutral-300 max-w-3/4 md:text-lg lg:text-xl">
+        <div className="leading-relaxed text-neutral-300 max-w-11/12 sm:max-w-3/4 text-sm md:text-lg lg:text-xl">
           <p className="md:block hidden">{overview}</p>
           <p className="block md:hidden">{overview_sm}</p>
         </div>

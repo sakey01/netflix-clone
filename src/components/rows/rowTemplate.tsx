@@ -55,31 +55,30 @@ const RowTemplate: React.FC<RowItem> = ({ category, endpoint }) => {
   };
 
   return (
-    <div className="relative group max-w-screen text-white mt-10 px-4">
+    <div className="text-white mt-20">
       {/* Scroll left button */}
       <button onClick={scrollLeft} className="chevron-btn left-1">
         <VscChevronLeft size={36} />
       </button>
 
       {/* Movie Row */}
-      <div className="flex flex-col">
+      <div className="">
         <h2 className="text-xl font-bold scale-y-110">{category}</h2>
 
         {/* Row container */}
         <div
-          className="flex overflow-x-scroll"
+          className=""
           ref={scrollRef}
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {movies.length > 0 &&
             movies.map((movie) => (
-              <div className="cursor-pointer flex-shrink-0 relative py-4 rounded transition-transform duration-250 delay-25 ease-in-out w-[240px] hover:scale-110">
+              <div className="">
                 <img
                   key={movie.id}
                   src={`//image.tmdb.org/t/p/w500/${movie.poster_path}`}
                   alt={movie.name}
                   width={240}
-                  className="rounded"
                 />
                 {/* Control + info section */}
                 <div className="flex flex-col w-full gap-4 bg-neutral-900 rounded p-2">
