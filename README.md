@@ -19,9 +19,8 @@ A Netflix clone, built with React, TypeScript and Tailwind.
 `Vite`
 `TMDB Movie API`
 
-
 ## 🎥 Demo Video
 
-## 📸 Demo Screenshots
+## 📸 Screenshots
 
-###### Live Here: https://netflix-mirayatech.vercel.app
+###### Live Here: https://sakey01.github.io/netflix-clone/
