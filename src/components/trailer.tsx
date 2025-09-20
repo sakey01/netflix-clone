@@ -13,7 +13,7 @@ const Trailer: React.FC = () => {
   const overview_sm = "A troubled security guard begins working at Freddy Fazbear's Pizzeria...";
 
   return (
-    <div className="relative w-full aspect-video mb-16">
+    <div className="relative w-full aspect-video mb-20">
       {/* Video Background */}
       <div className="absolute overflow-hidden inset-0">
         <ReactPlayer
@@ -42,7 +42,12 @@ const Trailer: React.FC = () => {
         </div>
         {/* Button group */}
         <div className="flex gap-4">
-          <button onClick={() => {alert("Can't play")}} className="btn bg-white text-black hover:bg-neutral-200">
+          <button
+            onClick={() => {
+              alert("Can't play");
+            }}
+            className="btn bg-white text-black hover:bg-neutral-200"
+          >
             <BsFillPlayFill className="text-xl sm:text-xl" />
             Play
           </button>

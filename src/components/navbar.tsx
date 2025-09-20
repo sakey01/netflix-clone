@@ -2,23 +2,27 @@ import { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { BsBell } from "react-icons/bs";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { useDebounce } from "../hooks/useDebounce";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [avatarSelected, setAvatartSelected] = useState<boolean>(false);
 
-  useEffect(() => {
-    // Track scroll position
-    const handleScroll = () => {
-      setScrolled(window.scrollY >= 50);
-    };
+  const handleScroll = () => {
+    setScrolled(window.scrollY >= 50);
+  };
 
-    window.addEventListener("scroll", handleScroll);
+  // debouncer for event listnern
+  const debouncedScroll = useDebounce(handleScroll, 10);
+
+  // Track scroll position
+  useEffect(() => {
+    window.addEventListener("scroll", debouncedScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", debouncedScroll);
     };
-  }, []);
+  }, [debouncedScroll]);
 
   return (
     <nav
