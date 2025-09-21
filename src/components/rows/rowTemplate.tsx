@@ -86,7 +86,7 @@ const RowTemplate: React.FC<RowItem> = ({ category, endpoint }) => {
         {movies.map((movie) => (
           <div
             key={movie.id}
-            className="group/card relative cursor-pointer flex-shrink-0 p-1 w-32 sm:w-48 md:w-56 delay-50 duration-300 hover:scale-115 hover:z-1"
+            className="group/card relative cursor-pointer flex-shrink-0 p-1 w-32 sm:w-48 md:w-56 delay-10 duration-400 hover:scale-115 hover:z-1"
           >
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
