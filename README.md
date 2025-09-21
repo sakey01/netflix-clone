@@ -21,9 +21,10 @@ A Netflix clone, built with React, TypeScript and Tailwind.
 
 ## 🎥 Demo Video
 
+https://github.com/user-attachments/assets/50202d91-2d0a-438c-a517-c41cb4f891b5
+
 ## 📸 Screenshots
 <img width="1268" height="588" alt="Screenshot 2025-09-21 at 11 30 32" src="https://github.com/user-attachments/assets/f081f11f-b3e7-4627-b34f-41bc309c51f4" />
 <img width="1268" height="588" alt="Screenshot 2025-09-21 at 11 31 20" src="https://github.com/user-attachments/assets/491a469c-b47a-4771-96f9-fccde52fe46d" />
-<img width="1268" height="588" alt="Screenshot 2025-09-20 at 23 41 31" src="https://github.com/user-attachments/assets/58a4e222-7439-4e24-abbc-3b5b7a7e78a0" />
 
 ###### Live Here: https://sakey01.github.io/netflix-clone/
