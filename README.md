@@ -4,9 +4,9 @@ A Netflix clone, built with React, TypeScript and Tailwind.
 
 ## 🧠 What I learned
 
-- What a debouncer is and how to use one.
+- How to integrate APIs
 - How to embed videos as backgrounds.
-- How to create a custome mute/unmute button that works. 
+- How to create a custom mute/unmute button that works. 
 - How to create a container that scrolls and more.
 
 ## 🛠️ Dependencies 
@@ -22,8 +22,7 @@ A Netflix clone, built with React, TypeScript and Tailwind.
 ## 🎥 Demo Video
 
 
-
-https://github.com/user-attachments/assets/f169a68f-224c-47cc-be2a-95b6d7d77771
+https://github.com/user-attachments/assets/d2b158f9-23a3-43ee-8e3b-eb98a1442a71
 
 
 
